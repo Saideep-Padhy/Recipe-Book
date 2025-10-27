@@ -1,13 +1,15 @@
-document.getElementById("input-search").addEventListener("keyup", function() {
-	let input = this.value.toLowerCase();
-	let food = document.querySelectorAll("#food");
+const search = document.getElementById('input-search');
+const recipes = document.querySelectorAll('.container');
 
-	items.forEach(item => {
-		let text = item.textContent.toLowerCase();
-		if (text.includes(input)) {
-			items.style.display = ";"
-		} else {
-			items.style.display = "none";
+search.addEventListener('keyup', () => {
+	const searchData = search.value.toLowerCase();
+	recipes.forEach(container => {
+		const title = container.querySelector('h2').textContent.toLowerCase();
+		if (title.includes(searchData)) {
+			container.style.display = 'block';
+		}
+		else {
+			container.style.display ='none';
 		}
 	});
 });
